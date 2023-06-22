@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b02c1da5-969a-4e07-9cb7-ac27850c7e1e": {
+      "ProjectGuid": "b02c1da5-969a-4e07-9cb7-ac27850c7e1e",
+      "DisplayName": "Catalog.Api",
+      "ColorIndex": 0
+    },
+    "7b4cf636-bd9b-4cc1-8940-13cb1662814e": {
+      "ProjectGuid": "7b4cf636-bd9b-4cc1-8940-13cb1662814e",
+      "DisplayName": "docker-compose",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

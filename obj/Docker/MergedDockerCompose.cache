@@ -1,0 +1,299 @@
+name: dockercompose5010064186842993682
+services:
+  basket.api:
+    build:
+      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      dockerfile: Services/Basket/Basket.Api/Dockerfile
+    container_name: projbasket.api
+    depends_on:
+      basketdb:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      CacheSettings:ConnectionString: basketdb:6379
+      EventBusSettings:HostAddress: amqp://guest:guest@rabbitmq:5672
+      GrpcSettings:DiscountUrl: http://discount.grpc
+    image: basketapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8001"
+      protocol: tcp
+  basketdb:
+    container_name: projbasketdb
+    image: redis:alpine
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 6379
+      published: "6379"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: redis-data
+      target: /data
+      volume: {}
+  catalog.api:
+    build:
+      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      dockerfile: Services/Catalog/Catalog.Api/Dockerfile
+    container_name: projcatalog.api
+    depends_on:
+      catalogdb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DatabaseSettings:ConnectionString: mongodb://catalogdb:27017
+    image: catalogapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8000"
+      protocol: tcp
+  catalogdb:
+    container_name: projcatalogdb
+    image: mongo
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 27017
+      published: "27017"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: mongo_data
+      target: /data/db
+      volume: {}
+  discount.grpc:
+    build:
+      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+    container_name: discount.grpc
+    depends_on:
+      discountdb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DatabaseSettings:ConnectionString: Server=discountdb;Port=5432;Database=DiscountDb;User
+        Id=admin;Password=admin1234
+    image: discountgrpc
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8003"
+      protocol: tcp
+  discountdb:
+    container_name: projdiscountdb
+    environment:
+      POSTGRES_DB: DiscountDb
+      POSTGRES_PASSWORD: admin1234
+      POSTGRES_USER: admin
+    image: postgres
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 5432
+      published: "5432"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: postgres_data
+      target: /var/lib/postgresql/data
+      volume: {}
+  mongoclient:
+    container_name: mongoclient
+    depends_on:
+      catalogdb:
+        condition: service_started
+    image: mongoclient/mongoclient
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 3000
+      published: "3000"
+      protocol: tcp
+    restart: always
+  ocelotapigw:
+    build:
+      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      dockerfile: ApiGatewayes/OcelotApiGW/Dockerfile
+    container_name: ocelotapigw
+    depends_on:
+      basket.api:
+        condition: service_started
+      catalog.api:
+        condition: service_started
+      ordering.api:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: ocelotapigw
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8010"
+      protocol: tcp
+  orderdb:
+    container_name: projorderdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: sa_12345
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "1433"
+      protocol: tcp
+    restart: always
+  ordering.api:
+    build:
+      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      dockerfile: Services/Ordering/Ordering.Api/Dockerfile
+    container_name: ordering.api
+    depends_on:
+      orderdb:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings:IdentityConnection: Server=orderdb;Database=IdentityDb;User
+        Id=sa;Password=sa_12345;
+      ConnectionStrings:OrderingConnectionString: Server=orderdb;Database=OrderDb;User
+        Id=sa;Password=sa_12345;
+      EventBusSettings:HostAddress: amqp://guest:guest@rabbitmq:5672
+    image: orderingapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8004"
+      protocol: tcp
+  pgadmin:
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@aspnetrun.com
+      PGADMIN_DEFAULT_PASSWORD: admin1234
+    image: dpage/pgadmin4
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "5050"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: pgadmin_data
+      target: /root/.pgadmin
+      volume: {}
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 8000
+      published: "8080"
+      protocol: tcp
+    - mode: ingress
+      target: 9000
+      published: "9000"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: bind
+      source: /var/run/docker.sock
+      target: /var/run/docker.sock
+      bind:
+        create_host_path: true
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management-alpine
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 5672
+      published: "5672"
+      protocol: tcp
+    - mode: ingress
+      target: 15672
+      published: "15672"
+      protocol: tcp
+    restart: always
+  redis-commander:
+    depends_on:
+      basketdb:
+        condition: service_started
+    environment:
+      HTTP_PASSWORD: secret
+      HTTP_USER: root
+      REDIS_HOSTS: local:basketdb:6379
+    image: rediscommander/redis-commander:latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 8081
+      published: "8081"
+      protocol: tcp
+  shopping.aggregator:
+    build:
+      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      dockerfile: ApiGatewayes/Shopping.Aggregator/Dockerfile
+    container_name: shopping.aggregator
+    depends_on:
+      basket.api:
+        condition: service_started
+      catalog.api:
+        condition: service_started
+      ordering.api:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ApiSettings:BasketUrl: http://basket.api
+      ApiSettings:CatalogUrl: http://catalog.api
+      ApiSettings:OrderingUrl: http://ordering.api
+    image: shoppingaggregator
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8005"
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose5010064186842993682_default
+volumes:
+  mongo_data:
+    name: dockercompose5010064186842993682_mongo_data
+  pgadmin_data:
+    name: dockercompose5010064186842993682_pgadmin_data
+  postgres_data:
+    name: dockercompose5010064186842993682_postgres_data
+  redis-data:
+    name: dockercompose5010064186842993682_redis-data
