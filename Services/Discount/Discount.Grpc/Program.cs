@@ -1,8 +1,10 @@
 //using Discount.Grpc.Services;
 
+using Common.Logging;
 using Discount.Grpc.Extensions;
 using Discount.Grpc.Repositories;
 using Discount.Grpc.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Host.UseSerilog(SeriLogger.Configure);
 var app = builder.Build();
 app.MigrateDatabase<Program>();
 // Configure the HTTP request pipeline.

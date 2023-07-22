@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "97W+ncFNujKUpV7O4z+9Y4dtmZ6wVMr0uf2CFFRTX4A=",
+  "Hash": "VJTOT/pOx/K9XD7GtX+ywFMil18/TilELi8TSRvoDgc=",
   "Source": "OcelotApiGW",
   "BasePath": "_content/OcelotApiGW",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "OcelotApiGW\\wwwroot",
       "Source": "OcelotApiGW",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\GalaxyS23Ultra.jpg",
+      "Identity": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\GalaxyS23Ultra.jpg",
       "SourceId": "OcelotApiGW",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "RelativePath": "images/products/GalaxyS23Ultra.jpg",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\GalaxyS23Ultra.jpg"
     },
     {
-      "Identity": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\GalaxyWatch444mm.jpg",
+      "Identity": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\GalaxyWatch444mm.jpg",
       "SourceId": "OcelotApiGW",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "RelativePath": "images/products/GalaxyWatch444mm.jpg",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\GalaxyWatch444mm.jpg"
     },
     {
-      "Identity": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\iPhone13ProZAA.jpg",
+      "Identity": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\iPhone13ProZAA.jpg",
       "SourceId": "OcelotApiGW",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "RelativePath": "images/products/iPhone13ProZAA.jpg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\iPhone13ProZAA.jpg"
     },
     {
-      "Identity": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\power200redmi.jpg",
+      "Identity": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\power200redmi.jpg",
       "SourceId": "OcelotApiGW",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "RelativePath": "images/products/power200redmi.jpg",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\power200redmi.jpg"
     },
     {
-      "Identity": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\RedmiNote10pro.jpg",
+      "Identity": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\RedmiNote10pro.jpg",
       "SourceId": "OcelotApiGW",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "RelativePath": "images/products/RedmiNote10pro.jpg",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\RedmiNote10pro.jpg"
     },
     {
-      "Identity": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\StainlessSteel.jpg",
+      "Identity": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\StainlessSteel.jpg",
       "SourceId": "OcelotApiGW",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "RelativePath": "images/products/StainlessSteel.jpg",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\StainlessSteel.jpg"
     },
     {
-      "Identity": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\Y9aFRL-L22.jpg",
+      "Identity": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\images\\products\\Y9aFRL-L22.jpg",
       "SourceId": "OcelotApiGW",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
+      "ContentRoot": "D:\\Project_microservice\\Microservices-Shop\\ApiGatewayes\\OcelotApiGW\\wwwroot\\",
       "BasePath": "_content/OcelotApiGW",
       "RelativePath": "images/products/Y9aFRL-L22.jpg",
       "AssetKind": "All",

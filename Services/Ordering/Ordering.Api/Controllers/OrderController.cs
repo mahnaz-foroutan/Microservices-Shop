@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Api.Extensions;
 using Ordering.Application.Contracts.Persistence;
@@ -34,7 +35,7 @@ namespace Ordering.Api.Controllers
         #endregion
 
         #region get all orders
-
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(typeof(IReadOnlyList<OrderToReturnDto>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IReadOnlyList<OrderToReturnDto>>> GetOrdersForUser()
@@ -48,7 +49,7 @@ namespace Ordering.Api.Controllers
         #endregion
 
         #region update order
-
+        [Authorize]
         [HttpPut(Name = "UpdateOrder")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -62,7 +63,7 @@ namespace Ordering.Api.Controllers
         #endregion
 
         #region delete order
-
+        [Authorize]
         [HttpDelete("{id}", Name = "DeleteOrder")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -75,7 +76,7 @@ namespace Ordering.Api.Controllers
 
         #endregion
 
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderToReturnDto>> GetOrderByIdForUser(int id)
         {
@@ -84,7 +85,7 @@ namespace Ordering.Api.Controllers
             var orders = await _mediator.Send(query);
             return Ok(orders);
         }
-
+        [Authorize]
         [HttpGet("deliveryMethods")]
         public async Task<ActionResult<IReadOnlyList<DeliveryMethod>>> GetDeliveryMethods()
         {

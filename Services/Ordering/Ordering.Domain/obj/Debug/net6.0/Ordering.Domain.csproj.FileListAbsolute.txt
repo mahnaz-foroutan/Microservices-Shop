@@ -34,3 +34,15 @@ D:\Project_microservice\TopLearn\Microservices-Shop\Services\Ordering\Ordering.D
 D:\Project_microservice\TopLearn\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\refint\Ordering.Domain.dll
 D:\Project_microservice\TopLearn\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.pdb
 D:\Project_microservice\TopLearn\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\ref\Ordering.Domain.dll
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\bin\Debug\net6.0\Ordering.Domain.deps.json
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\bin\Debug\net6.0\Ordering.Domain.dll
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\bin\Debug\net6.0\Ordering.Domain.pdb
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.csproj.AssemblyReference.cache
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.AssemblyInfoInputs.cache
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.AssemblyInfo.cs
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.csproj.CoreCompileInputs.cache
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.dll
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\refint\Ordering.Domain.dll
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\Ordering.Domain.pdb
+D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Domain\obj\Debug\net6.0\ref\Ordering.Domain.dll

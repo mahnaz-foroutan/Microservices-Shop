@@ -1,8 +1,8 @@
-name: dockercompose5010064186842993682
+name: dockercompose12945668052494597325
 services:
   basket.api:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Basket/Basket.Api/Dockerfile
     container_name: projbasket.api
     depends_on:
@@ -13,6 +13,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CacheSettings:ConnectionString: basketdb:6379
+      ElasticConfiguration:Uri: http://elasticsearch:9200
       EventBusSettings:HostAddress: amqp://guest:guest@rabbitmq:5672
       GrpcSettings:DiscountUrl: http://discount.grpc
     image: basketapi
@@ -23,6 +24,7 @@ services:
       target: 80
       published: "8001"
       protocol: tcp
+    restart: always
   basketdb:
     container_name: projbasketdb
     image: redis:alpine
@@ -41,7 +43,7 @@ services:
       volume: {}
   catalog.api:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Catalog/Catalog.Api/Dockerfile
     container_name: projcatalog.api
     depends_on:
@@ -50,6 +52,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       DatabaseSettings:ConnectionString: mongodb://catalogdb:27017
+      ElasticConfiguration:Uri: http://elasticsearch:9200
     image: catalogapi
     networks:
       default: null
@@ -58,6 +61,7 @@ services:
       target: 80
       published: "8000"
       protocol: tcp
+    restart: always
   catalogdb:
     container_name: projcatalogdb
     image: mongo
@@ -76,7 +80,7 @@ services:
       volume: {}
   discount.grpc:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
     container_name: discount.grpc
     depends_on:
@@ -86,6 +90,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       DatabaseSettings:ConnectionString: Server=discountdb;Port=5432;Database=DiscountDb;User
         Id=admin;Password=admin1234
+      ElasticConfiguration:Uri: http://elasticsearch:9200
     image: discountgrpc
     networks:
       default: null
@@ -94,6 +99,7 @@ services:
       target: 80
       published: "8003"
       protocol: tcp
+    restart: always
   discountdb:
     container_name: projdiscountdb
     environment:
@@ -114,6 +120,44 @@ services:
       source: postgres_data
       target: /var/lib/postgresql/data
       volume: {}
+  elasticsearch:
+    container_name: elasticsearch
+    environment:
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      discovery.type: single-node
+      xpack.monitoring.enabled: "true"
+      xpack.watcher.enabled: "false"
+    image: elasticsearch:8.8.1
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 9200
+      published: "9200"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: elasticsearch-data
+      target: /usr/share/elasticsearch/data
+      volume: {}
+  kibana:
+    container_name: kibana
+    depends_on:
+      elasticsearch:
+        condition: service_started
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    image: kibana:8.8.1
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 5601
+      published: "5601"
+      protocol: tcp
+    restart: always
   mongoclient:
     container_name: mongoclient
     depends_on:
@@ -130,7 +174,7 @@ services:
     restart: always
   ocelotapigw:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: ApiGatewayes/OcelotApiGW/Dockerfile
     container_name: ocelotapigw
     depends_on:
@@ -142,6 +186,7 @@ services:
         condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ElasticConfiguration:Uri: http://elasticsearch:9200
     image: ocelotapigw
     networks:
       default: null
@@ -150,6 +195,7 @@ services:
       target: 80
       published: "8010"
       protocol: tcp
+    restart: always
   orderdb:
     container_name: projorderdb
     environment:
@@ -166,7 +212,7 @@ services:
     restart: always
   ordering.api:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Ordering/Ordering.Api/Dockerfile
     container_name: ordering.api
     depends_on:
@@ -180,6 +226,7 @@ services:
         Id=sa;Password=sa_12345;
       ConnectionStrings:OrderingConnectionString: Server=orderdb;Database=OrderDb;User
         Id=sa;Password=sa_12345;
+      ElasticConfiguration:Uri: http://elasticsearch:9200
       EventBusSettings:HostAddress: amqp://guest:guest@rabbitmq:5672
     image: orderingapi
     networks:
@@ -189,6 +236,7 @@ services:
       target: 80
       published: "8004"
       protocol: tcp
+    restart: always
   pgadmin:
     container_name: pgadmin
     environment:
@@ -262,7 +310,7 @@ services:
       protocol: tcp
   shopping.aggregator:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: ApiGatewayes/Shopping.Aggregator/Dockerfile
     container_name: shopping.aggregator
     depends_on:
@@ -287,13 +335,15 @@ services:
       protocol: tcp
 networks:
   default:
-    name: dockercompose5010064186842993682_default
+    name: dockercompose12945668052494597325_default
 volumes:
+  elasticsearch-data:
+    name: dockercompose12945668052494597325_elasticsearch-data
   mongo_data:
-    name: dockercompose5010064186842993682_mongo_data
+    name: dockercompose12945668052494597325_mongo_data
   pgadmin_data:
-    name: dockercompose5010064186842993682_pgadmin_data
+    name: dockercompose12945668052494597325_pgadmin_data
   postgres_data:
-    name: dockercompose5010064186842993682_postgres_data
+    name: dockercompose12945668052494597325_postgres_data
   redis-data:
-    name: dockercompose5010064186842993682_redis-data
+    name: dockercompose12945668052494597325_redis-data

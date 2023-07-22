@@ -16,6 +16,19 @@
       "FileCacheOptions": { "TtlSeconds": 40 }
     },
     {
+      "DownstreamPathTemplate": "/api/v1/Catalog/getAll",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Catalog/getAll",
+      "UpstreamHttpMethod": [ "GET" ]
+      
+    },
+    {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -111,7 +124,11 @@
         "EnableRateLimiting": true,
         "Period": "3s",
         "PeriodTimespan": 1,
-        "Limit": 1
+        "Limit": 1,
+        "AuthenticationOptions": {
+          "AuthenticationProviderKey": "GatewayAuthenticationKey",
+          "AllowedScopes": []
+        }
       }
     },
 

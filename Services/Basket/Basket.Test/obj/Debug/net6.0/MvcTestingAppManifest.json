@@ -1,0 +1,5 @@
+{
+  "Basket.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Project_microservice\\Microservices-Shop\\Services\\Basket\\Basket.Api",
+  "Common.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging",
+  "EventBus.Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages"
+}

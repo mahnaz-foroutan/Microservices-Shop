@@ -7,12 +7,15 @@ namespace Basket.Api.Repositories
 {
     public class BasketRepository : IBasketRepository
     {
-        private readonly IDistributedCache _redisCache;
+        private readonly IDistributedCacheWrapper _redisCache;
 
-        public BasketRepository(IDistributedCache redisCache)
+
+        public BasketRepository(IDistributedCacheWrapper redisCache)
         {
             _redisCache = redisCache;
         }
+
+       
 
         public async Task<ShoppingCart> GetBasketAsync(string basketId)
         {

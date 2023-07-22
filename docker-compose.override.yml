@@ -88,9 +88,11 @@ services:
     
   catalog.api:
     container_name: projcatalog.api
+    restart: always 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
     depends_on:
       - catalogdb
     ports:
@@ -98,11 +100,13 @@ services:
 
   basket.api:
     container_name: projbasket.api
+    restart: always 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "CacheSettings:ConnectionString=basketdb:6379"
       - "GrpcSettings:DiscountUrl=http://discount.grpc"
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
     depends_on: 
       - basketdb
       - rabbitmq
@@ -111,9 +115,11 @@ services:
 
   discount.grpc:
     container_name: discount.grpc
+    restart: always 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234"
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
     ports:
       - "8003:80"
     depends_on:
@@ -121,11 +127,13 @@ services:
 
   ordering.api:
     container_name: ordering.api
+    restart: always 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=OrderDb;User Id=sa;Password=sa_12345;"
       - "ConnectionStrings:IdentityConnection=Server=orderdb;Database=IdentityDb;User Id=sa;Password=sa_12345;"
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
     depends_on:
       - orderdb
       - rabbitmq
@@ -135,8 +143,10 @@ services:
 
   ocelotapigw:
     container_name: ocelotapigw
+    restart: always 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
     depends_on:
       - catalog.api
       - basket.api
@@ -157,3 +167,34 @@ services:
       - ordering.api
     ports:
       - "8005:80"
+
+  elasticsearch:
+    container_name: elasticsearch
+    restart: always 
+    environment:
+    
+        - xpack.monitoring.enabled=true
+        - xpack.watcher.enabled=false
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        - discovery.type=single-node
+      
+    ports:
+        - "9200:9200"
+    volumes:
+        - elasticsearch-data:/usr/share/elasticsearch/data   
+    networks:
+       - elasticnet
+  kibana:
+    container_name: kibana
+    restart: always 
+    environment:        
+        - ELASTICSEARCH_URL=http://elasticsearch:9200
+        - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+        - elasticsearch
+    ports:
+        - "5601:5601"  
+    networks:
+       - elasticnet
+  
+ 

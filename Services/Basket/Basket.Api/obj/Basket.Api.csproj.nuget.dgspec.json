@@ -1,17 +1,90 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj": {}
+    "D:\\Project_microservice\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj": {}
   },
   "projects": {
-    "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj": {
+    "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj",
-        "projectName": "EventBus.Messages",
-        "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj",
+        "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj",
+        "projectName": "Common.Logging",
+        "projectPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\obj\\",
+        "outputPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Serilog.Exceptions": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "Serilog.Sinks.Elasticsearch": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj",
+        "projectName": "EventBus.Messages",
+        "projectPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +132,14 @@
         }
       }
     },
-    "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj": {
+    "D:\\Project_microservice\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj",
+        "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj",
         "projectName": "Basket.Api",
-        "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj",
+        "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Basket\\Basket.Api\\Basket.Api.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Basket\\Basket.Api\\obj\\",
+        "outputPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Basket\\Basket.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +156,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj": {
-                "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj"
+              "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj": {
+                "projectPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj"
+              },
+              "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj": {
+                "projectPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\EventBus.Messages\\EventBus.Messages.csproj"
               }
             }
           }
@@ -99,6 +175,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AspNetCore.HealthChecks.Redis": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "AspNetCore.HealthChecks.UI": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "AspNetCore.HealthChecks.UI.Client": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "AspNetCore.HealthChecks.UI.InMemory.Storage": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "AspNetCore.HealthChecks.Uris": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
@@ -136,6 +232,10 @@
             "MassTransit.RabbitMQ": {
               "target": "Package",
               "version": "[7.1.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.16, )"
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",

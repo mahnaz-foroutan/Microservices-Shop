@@ -1,17 +1,90 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj": {}
+    "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj": {}
   },
   "projects": {
-    "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj": {
+    "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj",
-        "projectName": "Catalog.Api",
-        "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj",
+        "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj",
+        "projectName": "Common.Logging",
+        "projectPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\obj\\",
+        "outputPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Serilog.Exceptions": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "Serilog.Sinks.Elasticsearch": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj",
+        "projectName": "Catalog.Api",
+        "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\Catalog.Api.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +101,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj": {
-                "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj"
+              "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj": {
+                "projectPath": "D:\\Project_microservice\\Microservices-Shop\\BuildingBlocks\\Common.Logging\\Common.Logging.csproj"
               },
-              "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
-                "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
+              "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj": {
+                "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj"
+              },
+              "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
+                "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj"
               }
             }
           }
@@ -91,14 +167,14 @@
         }
       }
     },
-    "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj": {
+    "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj",
+        "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj",
         "projectName": "Catalog.Core",
-        "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj",
+        "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\obj\\",
+        "outputPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -152,14 +228,14 @@
         }
       }
     },
-    "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
+    "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
         "projectName": "Catalog.Infrastructure",
-        "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+        "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\obj\\",
+        "outputPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -176,8 +252,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj": {
-                "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj"
+              "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj": {
+                "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj"
               }
             }
           }

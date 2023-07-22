@@ -1,0 +1,12 @@
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\bin\Debug\net6.0\Common.Logging.deps.json
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\bin\Debug\net6.0\Common.Logging.dll
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\bin\Debug\net6.0\Common.Logging.pdb
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.csproj.AssemblyReference.cache
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.AssemblyInfoInputs.cache
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.AssemblyInfo.cs
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.csproj.CoreCompileInputs.cache
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.dll
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\refint\Common.Logging.dll
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.pdb
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\Common.Logging\obj\Debug\net6.0\ref\Common.Logging.dll

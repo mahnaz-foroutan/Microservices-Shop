@@ -1,8 +1,8 @@
-name: dockercompose5010064186842993682
+name: dockercompose12945668052494597325
 services:
   basket.api:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Basket/Basket.Api/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
@@ -23,6 +23,7 @@ services:
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       CacheSettings:ConnectionString: basketdb:6379
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      ElasticConfiguration:Uri: http://elasticsearch:9200
       EventBusSettings:HostAddress: amqp://guest:guest@rabbitmq:5672
       GrpcSettings:DiscountUrl: http://discount.grpc
       NUGET_FALLBACK_PACKAGES: ""
@@ -40,15 +41,16 @@ services:
       target: 80
       published: "8001"
       protocol: tcp
+    restart: always
     tty: true
     volumes:
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop\Services\Basket\Basket.Api
+      source: D:\Project_microservice\Microservices-Shop\Services\Basket\Basket.Api
       target: /app
       bind:
         create_host_path: true
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop
+      source: D:\Project_microservice\Microservices-Shop
       target: /src
       bind:
         create_host_path: true
@@ -93,7 +95,7 @@ services:
       volume: {}
   catalog.api:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Catalog/Catalog.Api/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
@@ -112,6 +114,7 @@ services:
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       DatabaseSettings:ConnectionString: mongodb://catalogdb:27017
+      ElasticConfiguration:Uri: http://elasticsearch:9200
       NUGET_FALLBACK_PACKAGES: ""
     image: catalogapi:dev
     labels:
@@ -127,15 +130,16 @@ services:
       target: 80
       published: "8000"
       protocol: tcp
+    restart: always
     tty: true
     volumes:
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop\Services\Catalog\Catalog.Api
+      source: D:\Project_microservice\Microservices-Shop\Services\Catalog\Catalog.Api
       target: /app
       bind:
         create_host_path: true
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop
+      source: D:\Project_microservice\Microservices-Shop
       target: /src
       bind:
         create_host_path: true
@@ -180,7 +184,7 @@ services:
       volume: {}
   discount.grpc:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
@@ -200,6 +204,7 @@ services:
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       DatabaseSettings:ConnectionString: Server=discountdb;Port=5432;Database=DiscountDb;User
         Id=admin;Password=admin1234
+      ElasticConfiguration:Uri: http://elasticsearch:9200
       NUGET_FALLBACK_PACKAGES: ""
     image: discountgrpc:dev
     labels:
@@ -215,15 +220,16 @@ services:
       target: 80
       published: "8003"
       protocol: tcp
+    restart: always
     tty: true
     volumes:
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop\Services\Discount\Discount.Grpc
+      source: D:\Project_microservice\Microservices-Shop\Services\Discount\Discount.Grpc
       target: /app
       bind:
         create_host_path: true
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop
+      source: D:\Project_microservice\Microservices-Shop
       target: /src
       bind:
         create_host_path: true
@@ -270,6 +276,44 @@ services:
       source: postgres_data
       target: /var/lib/postgresql/data
       volume: {}
+  elasticsearch:
+    container_name: elasticsearch
+    environment:
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      discovery.type: single-node
+      xpack.monitoring.enabled: "true"
+      xpack.watcher.enabled: "false"
+    image: elasticsearch:8.8.1
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 9200
+      published: "9200"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: elasticsearch-data
+      target: /usr/share/elasticsearch/data
+      volume: {}
+  kibana:
+    container_name: kibana
+    depends_on:
+      elasticsearch:
+        condition: service_started
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    image: kibana:8.8.1
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 5601
+      published: "5601"
+      protocol: tcp
+    restart: always
   mongoclient:
     container_name: mongoclient
     depends_on:
@@ -286,7 +330,7 @@ services:
     restart: always
   ocelotapigw:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: ApiGatewayes/OcelotApiGW/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
@@ -308,6 +352,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      ElasticConfiguration:Uri: http://elasticsearch:9200
       NUGET_FALLBACK_PACKAGES: ""
     image: ocelotapigw:dev
     labels:
@@ -323,15 +368,16 @@ services:
       target: 80
       published: "8010"
       protocol: tcp
+    restart: always
     tty: true
     volumes:
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop\ApiGatewayes\OcelotApiGW
+      source: D:\Project_microservice\Microservices-Shop\ApiGatewayes\OcelotApiGW
       target: /app
       bind:
         create_host_path: true
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop
+      source: D:\Project_microservice\Microservices-Shop
       target: /src
       bind:
         create_host_path: true
@@ -374,7 +420,7 @@ services:
     restart: always
   ordering.api:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: Services/Ordering/Ordering.Api/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
@@ -398,6 +444,7 @@ services:
       ConnectionStrings:OrderingConnectionString: Server=orderdb;Database=OrderDb;User
         Id=sa;Password=sa_12345;
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      ElasticConfiguration:Uri: http://elasticsearch:9200
       EventBusSettings:HostAddress: amqp://guest:guest@rabbitmq:5672
       NUGET_FALLBACK_PACKAGES: ""
     image: orderingapi:dev
@@ -414,15 +461,16 @@ services:
       target: 80
       published: "8004"
       protocol: tcp
+    restart: always
     tty: true
     volumes:
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop\Services\Ordering\Ordering.Api
+      source: D:\Project_microservice\Microservices-Shop\Services\Ordering\Ordering.Api
       target: /app
       bind:
         create_host_path: true
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop
+      source: D:\Project_microservice\Microservices-Shop
       target: /src
       bind:
         create_host_path: true
@@ -522,7 +570,7 @@ services:
       protocol: tcp
   shopping.aggregator:
     build:
-      context: D:\Project_microservice\TopLearn\Microservices-Shop
+      context: D:\Project_microservice\Microservices-Shop
       dockerfile: ApiGatewayes/Shopping.Aggregator/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
@@ -565,12 +613,12 @@ services:
     tty: true
     volumes:
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop\ApiGatewayes\Shopping.Aggregator
+      source: D:\Project_microservice\Microservices-Shop\ApiGatewayes\Shopping.Aggregator
       target: /app
       bind:
         create_host_path: true
     - type: bind
-      source: D:\Project_microservice\TopLearn\Microservices-Shop
+      source: D:\Project_microservice\Microservices-Shop
       target: /src
       bind:
         create_host_path: true
@@ -599,13 +647,15 @@ services:
         create_host_path: true
 networks:
   default:
-    name: dockercompose5010064186842993682_default
+    name: dockercompose12945668052494597325_default
 volumes:
+  elasticsearch-data:
+    name: dockercompose12945668052494597325_elasticsearch-data
   mongo_data:
-    name: dockercompose5010064186842993682_mongo_data
+    name: dockercompose12945668052494597325_mongo_data
   pgadmin_data:
-    name: dockercompose5010064186842993682_pgadmin_data
+    name: dockercompose12945668052494597325_pgadmin_data
   postgres_data:
-    name: dockercompose5010064186842993682_postgres_data
+    name: dockercompose12945668052494597325_postgres_data
   redis-data:
-    name: dockercompose5010064186842993682_redis-data
+    name: dockercompose12945668052494597325_redis-data

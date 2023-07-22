@@ -12,12 +12,6 @@ namespace Ordering.Infrastructure.Repositories
     {
         public OrderRepository(OrderContext dbContext) : base(dbContext) { }
 
-
-        //public Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodsAsync()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public async Task<Order> GetOrderByIdAsync(int id, string buyerEmail)
         {
             return await _dbContext.Orders

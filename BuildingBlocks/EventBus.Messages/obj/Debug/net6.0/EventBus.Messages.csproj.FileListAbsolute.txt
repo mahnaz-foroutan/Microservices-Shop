@@ -34,3 +34,15 @@ D:\Project_microservice\TopLearn\Microservices-Shop\BuildingBlocks\EventBus.Mess
 D:\Project_microservice\TopLearn\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\refint\EventBus.Messages.dll
 D:\Project_microservice\TopLearn\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.pdb
 D:\Project_microservice\TopLearn\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\ref\EventBus.Messages.dll
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\bin\Debug\net6.0\EventBus.Messages.deps.json
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\bin\Debug\net6.0\EventBus.Messages.dll
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\bin\Debug\net6.0\EventBus.Messages.pdb
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.csproj.AssemblyReference.cache
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.AssemblyInfoInputs.cache
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.AssemblyInfo.cs
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.csproj.CoreCompileInputs.cache
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.dll
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\refint\EventBus.Messages.dll
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.pdb
+D:\Project_microservice\Microservices-Shop\BuildingBlocks\EventBus.Messages\obj\Debug\net6.0\ref\EventBus.Messages.dll

@@ -7,7 +7,6 @@ using Catalog.Core.Entities;
 using Catalog.Api.Helpers;
 using Catalog.Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Catalog.Api.Errors;
 using Catalog.Core.Interfaces;
 
@@ -16,10 +15,8 @@ namespace Catalog.Api.Controllers
     public class CatalogController : BaseApiController
     {
         #region constructor
-
         private readonly IProductRepository _productRepository;
         private readonly ILogger<CatalogController> _logger;
-
         private readonly IMapper _mapper;
 
         public CatalogController(IProductRepository productRepository, ILogger<CatalogController> logger, IMapper mapper)
@@ -32,12 +29,12 @@ namespace Catalog.Api.Controllers
         #endregion
 
         #region get products
-
-        [HttpGet("GetAll")]
-        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        [HttpGet("getAll")]
+       // [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsAll()
         {
-            var products = await _productRepository.GetProductsAsync();
+            var products  = await _productRepository.GetProductsAsync();
+               
             return Ok(products);
         }
 
@@ -50,8 +47,8 @@ namespace Catalog.Api.Controllers
         public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts(
             [FromQuery] ProductSpecParams productParams)
         {
-            
-            var totalItems = _productRepository.Count(productParams);
+           
+                var totalItems = _productRepository.Count(productParams);
 
             var products = _productRepository.ListAsync(productParams);
 
@@ -66,10 +63,11 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductToReturnDto>> GetProduct(string id)
         {
-            var product = await _productRepository.GetProductByIdAsync(id);
+            
+                var product = await _productRepository.GetProductByIdAsync(id);
 
-            if (product == null) return NotFound(new ApiResponse(404));
-
+                if (product == null) return NotFound(new ApiResponse(404));
+           
             return _mapper.Map<ProductToReturnDto>(product);
         }
 
@@ -98,6 +96,7 @@ namespace Catalog.Api.Controllers
         public async Task<ActionResult<Product>> CreateProduct([FromBody] Product product)
         {
             await _productRepository.CreateProduct(product);
+         
             return CreatedAtRoute("GetProduct", new { id = product.Id }, product);
         }
 
@@ -120,6 +119,7 @@ namespace Catalog.Api.Controllers
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteProduct(string id)
         {
+           
             return Ok(await _productRepository.DeleteProduct(id));
         }
 

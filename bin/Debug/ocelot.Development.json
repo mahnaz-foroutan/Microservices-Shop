@@ -13,7 +13,24 @@
       ],
       "UpstreamPathTemplate": "/Catalog",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
-      "FileCacheOptions": { "TtlSeconds": 40 }
+      "FileCacheOptions": { "TtlSeconds": 40 },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Catalog/getAll",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "catalog.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Catalog/getAll",
+      "UpstreamHttpMethod": [ "GET" ],
+      
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
@@ -37,7 +54,11 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/brands",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/types",
@@ -111,7 +132,11 @@
         "EnableRateLimiting": true,
         "Period": "3s",
         "PeriodTimespan": 1,
-        "Limit": 1
+        "Limit": 1,
+        "AuthenticationOptions": {
+          "AuthenticationProviderKey": "GatewayAuthenticationKey",
+          "AllowedScopes": []
+        }
       }
     },
 

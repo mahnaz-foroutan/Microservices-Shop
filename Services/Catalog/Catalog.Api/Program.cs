@@ -2,14 +2,11 @@ using Catalog.Api.Errors;
 using Catalog.Core.Interfaces;
 using Catalog.Infrastructure.Data;
 using Catalog.Infrastructure.Repositories;
-using Catalog.Infrastructure.Services;
+using Common.Logging;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using StackExchange.Redis;
-using static Catalog.Infrastructure.Data.ProductDatabaseSettings;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,12 +46,8 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
     };
 });
 builder.Services.AddDirectoryBrowser();
-//builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
-//{
-//    var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
-//    return ConnectionMultiplexer.Connect(configuration);
-//});
-//builder.Services.AddSingleton<IResponseCacheService, ResponseCacheService>();
+
+builder.Host.UseSerilog(SeriLogger.Configure);
 
 var app = builder.Build();
 
@@ -65,26 +58,23 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog.Api v1"));
 }
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 
 app.UseFileServer();
 app.UseStaticFiles();
 app.UseDefaultFiles();
-//app.UseStaticFiles(new StaticFileOptions
+
+//app.UseFileServer(new FileServerOptions
 //{
 //    FileProvider = new PhysicalFileProvider(
-//        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
-//    RequestPath = "/wwwroot"
+//           Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+//    RequestPath = "/wwwroot",
+//    EnableDirectoryBrowsing = true
 //});
-app.UseFileServer(new FileServerOptions
-{
-    FileProvider = new PhysicalFileProvider(
-           Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
-    RequestPath = "/wwwroot",
-    EnableDirectoryBrowsing = true
-});
 app.MapDefaultControllerRoute();
 app.MapControllers();
 
 app.Run();
+public partial class Program { }

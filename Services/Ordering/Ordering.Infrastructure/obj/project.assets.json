@@ -4349,11 +4349,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Infrastructure\\Ordering.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Infrastructure\\Ordering.Infrastructure.csproj",
       "projectName": "Ordering.Infrastructure",
-      "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Infrastructure\\Ordering.Infrastructure.csproj",
+      "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Infrastructure\\Ordering.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Infrastructure\\obj\\",
+      "outputPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4370,8 +4370,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Application\\Ordering.Application.csproj": {
-              "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Application\\Ordering.Application.csproj"
+            "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Application\\Ordering.Application.csproj": {
+              "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Application\\Ordering.Application.csproj"
             }
           }
         }

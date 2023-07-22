@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AZ+nDFXfHgjitjfln/rdhidSpPD2hvmC7bB4mxSBnca7WZhuMW+8GpVfyoZjP5vy3ymPhAMpJRjI7DvBxyolqA==",
+  "dgSpecHash": "hIoAGHO7Cay1wmvbp3noJ8bOh6dAmjRhXu3hWNimn/aDedu69WeoB6cX9ndNORMJ+7TIivChsef+o5fyGCSyrQ==",
   "success": true,
-  "projectFilePath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
+  "projectFilePath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Infrastructure\\Catalog.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\dnsclient\\1.6.0\\dnsclient.1.6.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

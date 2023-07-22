@@ -1,4 +1,6 @@
+using Common.Logging;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using Shopping.Aggregator.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +30,7 @@ builder.Services.AddHttpClient<IBasketService, BasketService>(b =>
 //{
 //    o.BaseAddress = new Uri(builder.Configuration["ApiSettings:OrderingUrl"]);
 //});
+builder.Host.UseSerilog(SeriLogger.Configure);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

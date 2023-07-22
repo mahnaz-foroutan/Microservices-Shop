@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rcDwOsovOTz3D2MTp7hpFEWVEIxhv9QDSNCR+tdRXLaUL5Q/M/6WQl/130D+z6gW/qzquKpJdQj5qdGMEbt53g==",
+  "dgSpecHash": "PKc9JWUt2nRph8knKKKz30VBJUzQIEfZyPeWjdQLn6KzIyHcb8OwUTljV2UAOmvOxe9sQgqR1yOOBtxZzfj/iQ==",
   "success": true,
-  "projectFilePath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj",
+  "projectFilePath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Catalog\\Catalog.Core\\Catalog.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\dnsclient\\1.6.0\\dnsclient.1.6.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",

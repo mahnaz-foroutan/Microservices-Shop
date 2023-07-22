@@ -824,11 +824,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Domain\\Ordering.Domain.csproj",
+      "projectUniqueName": "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Domain\\Ordering.Domain.csproj",
       "projectName": "Ordering.Domain",
-      "projectPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Domain\\Ordering.Domain.csproj",
+      "projectPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Domain\\Ordering.Domain.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\Project_microservice\\TopLearn\\Microservices-Shop\\Services\\Ordering\\Ordering.Domain\\obj\\",
+      "outputPath": "D:\\Project_microservice\\Microservices-Shop\\Services\\Ordering\\Ordering.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
