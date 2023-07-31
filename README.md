@@ -50,7 +50,7 @@ We have implemented below **features over the run-aspnetcore-microservices repos
 * Consuming **RabbitMQ** BasketCheckout event queue with using **MassTransit-RabbitMQ** Configuration
 * **SqlServer database** connection and containerization
 * Using **Entity Framework Core ORM** and auto migrate to SqlServer when application startup
-####Authetication and authorization 
+#### Authentication and Authorization 
 * JWT
 * OpenIDConnect	
 
@@ -86,7 +86,7 @@ We have implemented below **features over the run-aspnetcore-microservices repos
 You will need the following tools:
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/)
-* [.Net Core 6 or later](https://dotnet.microsoft.com/download/dotnet-core/5)
+* [.Net Core 6 or later](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
  At the root directory which include **docker-compose.yml** files, run below command:
