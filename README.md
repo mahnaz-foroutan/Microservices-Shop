@@ -81,7 +81,11 @@ We have implemented below **features over the run-aspnetcore-microservices repos
 * Containerization of microservices
 * Containerization of databases
 * Override Environment variables
-
+#### Azure DevOps
+* add Project
+* add Task
+* CI/CD pipline
+* 
 ## Run The Project
 You will need the following tools:
 
