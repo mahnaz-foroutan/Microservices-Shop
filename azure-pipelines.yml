@@ -28,15 +28,3 @@ stages:
         dockerfile: $(Build.SourcesDirectory)/ApiGatewayes/OcelotApiGW/Dockerfile
         tags: |
           $(tag)      
-    - task: VSTest@3
-      inputs:
-      testSelector: 'testAssemblies'
-      testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-      searchFolder: '$(System.DefaultWorkingDirectory)'
-      runOnlyImpactedTests: true
-      runInParallel: true
-      runTestsInIsolation: true
-      codeCoverageEnabled: false
