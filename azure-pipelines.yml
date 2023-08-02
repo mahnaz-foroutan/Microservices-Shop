@@ -1,16 +1,4 @@
 # Docker
-- task: VSTest@3
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    runOnlyImpactedTests: true
-    runInParallel: true
-    runTestsInIsolation: true
-    codeCoverageEnabled: false
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -39,4 +27,16 @@ stages:
         buildContext: $(Build.SourcesDirectory)
         dockerfile: $(Build.SourcesDirectory)/ApiGatewayes/OcelotApiGW/Dockerfile
         tags: |
-          $(tag)
+          $(tag)      
+    - task: VSTest@3
+      inputs:
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+      runOnlyImpactedTests: true
+      runInParallel: true
+      runTestsInIsolation: true
+      codeCoverageEnabled: false
