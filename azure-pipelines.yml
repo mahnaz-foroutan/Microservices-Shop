@@ -25,6 +25,6 @@ stages:
       inputs:
         command: build
         buildContext: $(Build.SourcesDirectory)
-        dockerfile: $(Build.SourcesDirectory)/ApiGatewayes/Dockerfile
+        dockerfile: $(Build.SourcesDirectory)/ApiGatewayes/OcelotApiGW/Dockerfile
         tags: |
           $(tag)
