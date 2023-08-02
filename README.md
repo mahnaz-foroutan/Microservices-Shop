@@ -1,3 +1,4 @@
+# Microservices-Shop
 
 See the overall picture of **implementations on microservices with .net tools** on real-world **Microservices-Shop** project;
 
@@ -49,7 +50,7 @@ We have implemented below **features over the run-aspnetcore-microservices repos
 * Consuming **RabbitMQ** BasketCheckout event queue with using **MassTransit-RabbitMQ** Configuration
 * **SqlServer database** connection and containerization
 * Using **Entity Framework Core ORM** and auto migrate to SqlServer when application startup
-####Authetication and authorization 
+#### Authentication and Authorization 
 * JWT
 * OpenIDConnect	
 
@@ -80,21 +81,17 @@ We have implemented below **features over the run-aspnetcore-microservices repos
 * Containerization of microservices
 * Containerization of databases
 * Override Environment variables
-
+#### Azure DevOps
+* add Project
+* add Task
+* CI/CD pipline
+* 
 ## Run The Project
 You will need the following tools:
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/)
-* [.Net Core 6 or later](https://dotnet.microsoft.com/download/dotnet-core/5)
+* [.Net Core 6 or later](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-### Installing
-Follow these steps to get your development environment set up: (Before Run Start the Docker Desktop)
-1. Clone the repository
-2. Once Docker for Windows is installed, go to the **Settings > Advanced option**, from the Docker icon in the system tray, to configure the minimum amount of memory and CPU like so:
-* **Memory: 4 GB**
-* CPU: 2
-3. At the root directory which include **docker-compose.yml** files, run below command:
-```csharp
+ At the root directory which include **docker-compose.yml** files, run below command:
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
-```
